@@ -22,8 +22,8 @@ const orderSchema =mongoose.Schema({
   // customerreviews:[
   //   {
   //     customerid:{type:mongoose.Types.ObjectId,ref:"Customer"},
-  //     Rating:Number,
-  //     comment:object
+  //     Rating:{type:Number,min:1,max:5},
+  //     comment:String,
   //   }
   // ],
   orderdishid:{

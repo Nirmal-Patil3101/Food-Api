@@ -25,9 +25,9 @@ const dishSchema = mongoose.Schema({
         required:[true,"img is required"]
     },
     disavailable:{
-        type:String,
-        required:[true]
-    }
+        type:Boolean,
+        default:true
+       }
 })
 
 export const Dish = mongoose.model("Dish",dishSchema);
