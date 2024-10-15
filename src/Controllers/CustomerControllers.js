@@ -33,7 +33,7 @@ const updateCustomer = async (req, res) => {
   try {
     let updatedCustomer = await Customer.findByIdAndUpdate(
       { _id: req.body.customerid },
-      { cemail: req.body.cemail },
+      { cmobile: req.body.cmobile},
       { new: true }
     );
     res.status(200).json(updatedCustomer);

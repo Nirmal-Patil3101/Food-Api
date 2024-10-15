@@ -3,8 +3,7 @@ import mongoose from "mongoose";
 const customerSchema = mongoose.Schema({
     cname: {
         type:String,
-        required:[true,"Name is required"],
-        //unique:true
+        required:[true,"Name is required"]
     },
     cemail: {
         type:String,
@@ -13,8 +12,7 @@ const customerSchema = mongoose.Schema({
     },
     cmobile: {
         type:Number,
-        required:[true,"Mobile is required"],
-        //unique:true
+        required:[true,"Mobile is required"]
     },
     gender:{
         type:String,
@@ -42,8 +40,8 @@ const customerSchema = mongoose.Schema({
         required:[true,"Photo is required"]
     },
     cisBlock: {
-        type:String,
-        required:[true]
+        type:Boolean,
+        default:false
     }
 })
 

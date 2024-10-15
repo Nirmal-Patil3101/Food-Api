@@ -19,7 +19,7 @@ const orderSchema =mongoose.Schema({
     ref:"Customer",
     required:[true,"Customer Id"],
   },
-  // customerRevies:[
+  // customerreviews:[
   //   {
   //     customerid:{type:mongoose.Types.ObjectId,ref:"Customer"},
   //     Rating:Number,
