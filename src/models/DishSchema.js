@@ -4,7 +4,7 @@ const dishSchema = mongoose.Schema({
     dname:{
         type:String,
         required:[true,"Dish name is required"],
-        unique:true
+        //unique:true
     },
     dprice:{
         type:Number,

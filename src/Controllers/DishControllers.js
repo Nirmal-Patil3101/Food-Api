@@ -3,7 +3,7 @@ import { Dish } from "../models/DishSchema.js";
 const adddish = async (req, res) => {
   console.log(req.body);
   try {
-    const addeddish = await Dish.create(req.body);
+    const addeddish = await Dish.create({...req.body,dimg:req.file.path});
     res.status(200).json(addeddish);
   } catch (error) {
     res.status(500).json(error);
