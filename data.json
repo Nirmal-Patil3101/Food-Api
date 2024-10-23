@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "6708a6d62ae04b8b5aff6955",
+        "dname": "samosa",
+        "dprice": 150,
+        "dtype": "dbhj",
+        "dcategory": "fhv",
+        "dimg": "dbhj",
+        "disavailable": true,
+        "__v": 0
+    },
+    {
+        "_id": "670b6bbc54132ca3dafb2b93",
+        "dname": "pani puri",
+        "dprice": 400,
+        "dtype": "Vegetarians",
+        "dcategory": "Indian",
+        "dimg": "gyrgufg",
+        "disavailable": true,
+        "__v": 0
+    },
+    {
+        "_id": "671118cb96450dfbd9a1a31b",
+        "dname": "dosa",
+        "dprice": 120,
+        "dtype": "Vegetarians",
+        "dcategory": "Indian",
+        "dimg": "uploads\\1729173706928.jpg",
+        "disavailable": true,
+        "__v": 0
+    }
+]
