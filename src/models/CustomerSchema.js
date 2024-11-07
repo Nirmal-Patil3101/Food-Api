@@ -11,7 +11,7 @@ const customerSchema = mongoose.Schema({
         unique:true
     },
     cmobile: {
-        type:Number,
+        type:String,
         required:[true,"Mobile is required"]
     },
     gender:{
@@ -32,12 +32,12 @@ const customerSchema = mongoose.Schema({
         required:[true,"State is required"]
     },
     cpincode: {
-        type:Number,
+        type:String,
         required:[true,"Pin code is required"]
     },
     cphoto: {
         type:String,
-        required:[true,"Photo is required"]
+       // required:[true,"Photo is required"]
     },
     cisBlock: {
         type:Boolean,

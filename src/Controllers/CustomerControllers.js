@@ -3,7 +3,8 @@ import { Customer } from "../models/CustomerSchema.js";
 const addcustomer = async (req, res) => {
   console.log(req.body);
   try {
-    const addedCustomer = await Customer.create(req.body);
+    let filePath = req.file.path.replace(/\\/g,"/");
+    const addedCustomer = await Customer.create({...req.body,cphoto:filePath});
     res.status(200).json(addedCustomer);
   } catch (error) {
     res.status(500).json(error);

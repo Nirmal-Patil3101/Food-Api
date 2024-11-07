@@ -8,7 +8,7 @@ import { upload } from "../middleware/multerUpload.js";
 const router = express.Router()
 
 //Customer
-router.post("/addcustomer",addcustomer)
+router.post("/addcustomer",upload.single("image"),addcustomer)
 router.get("/all",getAllCustomer)
 router.delete("/deletecustomer",deleteCustomer)
 router.put("/updatecustomer",updateCustomer)

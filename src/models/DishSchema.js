@@ -7,7 +7,7 @@ const dishSchema = mongoose.Schema({
         //unique:true
     },
     dprice:{
-        type:Number,
+        type:String,
         required:[true,"Price is required"]
     },
     dtype:{
