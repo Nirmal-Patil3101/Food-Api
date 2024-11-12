@@ -39,6 +39,10 @@ const customerSchema = mongoose.Schema({
         type:String,
        // required:[true,"Photo is required"]
     },
+    cpassword:{
+        type:String,
+        required:[true,"Password is required"]
+    },
     cisBlock: {
         type:Boolean,
         default:false

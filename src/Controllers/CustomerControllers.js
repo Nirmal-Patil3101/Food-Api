@@ -3,8 +3,11 @@ import { Customer } from "../models/CustomerSchema.js";
 const addcustomer = async (req, res) => {
   console.log(req.body);
   try {
-    let filePath = req.file.path.replace(/\\/g,"/");
-    const addedCustomer = await Customer.create({...req.body,cphoto:filePath});
+    let filePath = req.file.path.replace(/\\/g, "/");
+    const addedCustomer = await Customer.create({
+      ...req.body,
+      cphoto: filePath,
+    });
     res.status(200).json(addedCustomer);
   } catch (error) {
     res.status(500).json(error);
@@ -34,7 +37,7 @@ const updateCustomer = async (req, res) => {
   try {
     let updatedCustomer = await Customer.findByIdAndUpdate(
       { _id: req.body.customerid },
-      { cmobile: req.body.cmobile},
+      { cmobile: req.body.cmobile },
       { new: true }
     );
     res.status(200).json(updatedCustomer);
@@ -43,4 +46,29 @@ const updateCustomer = async (req, res) => {
   }
 };
 
-export { addcustomer, getAllCustomer, deleteCustomer,updateCustomer };
+const doLogin = async (req, res) => {
+  try {
+    let { cemail, cpassword } = req.body;
+    let logedCust = await Customer.findOne({
+      cemail,
+      cpassword,
+    });
+    if (!logedCust) {
+      res.status(500).json({
+        message: "Login Fail",
+        data: logedCust,
+        success: false,
+      });
+    } else {
+      res.status(200).json({
+        message: "Login Success",
+        data: logedCust,
+        success: true,
+      });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+export { addcustomer, getAllCustomer, doLogin, deleteCustomer, updateCustomer };
