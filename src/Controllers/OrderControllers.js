@@ -13,7 +13,7 @@ const addorder = async (req, res) => {
 const getallOrder = async (req, res) => {
   try {
     const order = await Order.find()
-      .populate("ordercustomerid").where("orderStatus")
+      .populate("ordercustomerid").where("orderStatus").ne("cancel")
       .populate("orderItems.dishid");
     res.status(200).json(order);
   } catch (error) {
