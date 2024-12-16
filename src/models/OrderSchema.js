@@ -26,14 +26,14 @@ const orderSchema = mongoose.Schema({
   //     comment:String,
   //   }
   // ],
-  orderdishid: {
-    type: mongoose.Types.ObjectId,
-    ref: "Dish",
-    required: [true, "dish id"],
-  },
+  // orderdishid: {
+  //   type: mongoose.Types.ObjectId,
+  //   ref: "Dish",
+  //   required: [true, "dish id"],
+  // },
   orderItems: [
     {
-      prodId: { type: mongoose.Types.ObjectId, ref: "Prod" },
+      dishid: { type: mongoose.Types.ObjectId, ref: "Dish" },
       Qty: Number,
     },
   ],

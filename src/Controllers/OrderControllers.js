@@ -13,10 +13,11 @@ const addorder = async (req, res) => {
 const getallOrder = async (req, res) => {
   try {
     const order = await Order.find()
-    .populate("ordercustomerid","cname cmobile")
-    .populate("orderdishid","dname dprice");
+      .populate("ordercustomerid").where("orderStatus")
+      .populate("orderItems.dishid");
     res.status(200).json(order);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 };
