@@ -1,3 +1,4 @@
+import { request } from "express";
 import { Order } from "../models/OrderSchema.js";
 
 const addorder = async (req, res) => {
@@ -6,6 +7,7 @@ const addorder = async (req, res) => {
     const addedorder = await Order.create(req.body);
     res.status(200).json(addedorder);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 };
@@ -13,7 +15,9 @@ const addorder = async (req, res) => {
 const getallOrder = async (req, res) => {
   try {
     const order = await Order.find()
-      .populate("ordercustomerid").where("orderStatus").ne("cancel")
+      .populate("ordercustomerid")
+      .where("orderStatus")
+      .ne("cancel")
       .populate("orderItems.dishid");
     res.status(200).json(order);
   } catch (error) {
@@ -44,5 +48,31 @@ const updateorder = async (req, res) => {
     res.status(500).json(error);
   }
 };
+const Getorderbycustomerid = async (req, res) => {
+  try {
+    let Getorderbycustomerid = await Order.find({
+      ordercustomerid: req.body.ordercustomerid,
+    })
+      .populate("ordercustomerid")
+      .where("orderStatus")
+      .eq(req.body.orderStatus)
+      .populate("orderItems.dishid");
+    res.status(200).json(Getorderbycustomerid);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};
+const Getorderbystatus = async (req,res)=>{
+  try {
+    let getorderbystatus = await Order.find()
+    .populate("orderStatus").where("orderStatus").eq(req.body.orderStatus);
+    res.status(200).json(getorderbystatus);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};
 
-export { addorder, getallOrder, deleteorder, updateorder };
+
+export { addorder, getallOrder, deleteorder, updateorder, Getorderbycustomerid , Getorderbystatus};

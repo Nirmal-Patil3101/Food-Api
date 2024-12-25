@@ -16,6 +16,8 @@ import {
   addorder,
   deleteorder,
   getallOrder,
+  Getorderbycustomerid,
+  Getorderbystatus,
   updateorder,
 } from "../Controllers/OrderControllers.js";
 import { upload } from "../middleware/multerUpload.js";
@@ -40,5 +42,7 @@ router.post("/addorder", addorder);
 router.get("/allorder", getallOrder);
 router.delete("/deleteorder", deleteorder);
 router.put("/updateorder", updateorder);
+router.post("/Getorderbycustomerid",Getorderbycustomerid);
+router.get("/getorderbystatus",Getorderbystatus);
 
 export { router };

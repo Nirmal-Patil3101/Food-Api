@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+  
 const orderSchema = mongoose.Schema({
   orderDate: {
     type: Date,
@@ -39,7 +39,7 @@ const orderSchema = mongoose.Schema({
   ],
   orderStatus: {
     type: String,
-    required: [true, "Order Status"],
+    enum: ["Pending", "Intransit", "Delivered", "Cancel"],
     default: "Pending",
   },
 });
