@@ -21,6 +21,8 @@ import {
   updateorder,
 } from "../Controllers/OrderControllers.js";
 import { upload } from "../middleware/multerUpload.js";
+import { DashboardCollecion } from "../Controllers/DashboardControllers.js";
+import { addReview, DeleteReview, getallReview, UpdateReview } from "../Controllers/ReviewControllers.js";
 
 const router = express.Router();
 
@@ -43,6 +45,15 @@ router.get("/allorder", getallOrder);
 router.delete("/deleteorder", deleteorder);
 router.put("/updateorder", updateorder);
 router.post("/Getorderbycustomerid",Getorderbycustomerid);
-router.get("/getorderbystatus",Getorderbystatus);
+router.post("/getorderbystatus",Getorderbystatus);
+
+//Dashbord
+router.get("/dashbordcollection",DashboardCollecion);
+
+//Review
+router.post("/addreview",addReview);
+router.get("/getallreview",getallReview);
+router.delete("/deletereview",DeleteReview);
+router.put("/updatereview",UpdateReview);
 
 export { router };

@@ -66,7 +66,8 @@ const Getorderbycustomerid = async (req, res) => {
 const Getorderbystatus = async (req,res)=>{
   try {
     let getorderbystatus = await Order.find()
-    .populate("orderStatus").where("orderStatus").eq(req.body.orderStatus);
+    .populate("ordercustomerid").where("orderStatus").eq(req.body.orderStatus)
+    .populate("orderItems.dishid");
     res.status(200).json(getorderbystatus);
   } catch (error) {
     console.log(error);
