@@ -10,6 +10,7 @@ import {
   adddish,
   deletedish,
   getallDish,
+  getDishesWithAvgRating,
   updatedish,
 } from "../Controllers/DishControllers.js";
 import {
@@ -38,6 +39,7 @@ router.post("/adddish", upload.single("image"), adddish);
 router.get("/getdish", getallDish);
 router.delete("/deletedish", deletedish);
 router.put("/updatedish", updatedish);
+router.get("/getdisheswithavgrating",getDishesWithAvgRating)
 
 //Order
 router.post("/addorder", addorder);
